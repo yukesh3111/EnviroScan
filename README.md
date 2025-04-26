@@ -149,6 +149,3 @@ Compares satellite images from different dates (e.g., previous month vs. current
 # 🌎 Made with passion for environmental innovation.
 
 ---
-
-Would you also like me to generate a sample `requirements.txt` and a basic folder structure you can add too? 🚀  
-It’ll make it even more professional if you’re planning to upload it to GitHub! 🎯
