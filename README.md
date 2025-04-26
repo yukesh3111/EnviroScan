@@ -135,7 +135,7 @@ This project is licensed under the **MIT License** — see the `LICENSE.md` file
 
 | Feature | Screenshot |
 |--------|-------------|
-| Tree Counting | ![Tree Counting](assets/screenshots/tree_counting.png) |
+| Tree Counting | ![Tree Counting]([assets/screenshots/tree_counting.png](https://github.com/yukesh3111/EnviroScan/blob/main/Web%20app%20Screenshots/5980257bda1145a394ee5dec998dd68f.jpg)) |
 | Species Identification | ![Species Detection](assets/screenshots/species_identification.png) |
 | Green Space Segmentation | ![Green Segmentation](assets/screenshots/green_space_segmentation.png) |
 | Tree Count Comparison | ![Tree Count Comparison](assets/screenshots/tree_comparison.png) |
