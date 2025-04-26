@@ -1,6 +1,3 @@
-Got it!  
-Here’s a **professional, detailed `README.md`** draft for your project — I’ve also added more technical terms to make it richer and impressive.
-
 ---
 
 # 🌳 EnviroScan: Tree Enumeration and Analysis Platform
