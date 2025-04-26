@@ -135,10 +135,10 @@ This project is licensed under the **MIT License** — see the `LICENSE.md` file
 
 | Feature | Screenshot |
 |--------|-------------|
-| Tree Counting | ![Tree Counting](Web%20app%20Screenshots/5980257bda1145a394ee5dec998dd68f.jpg) |
-| Species Identification | ![Species Detection](assets/screenshots/species_identification.png) |
-| Green Space Segmentation | ![Green Segmentation](assets/screenshots/green_space_segmentation.png) |
-| Tree Count Comparison | ![Tree Count Comparison](assets/screenshots/tree_comparison.png) |
+| Tree Counting Automatically detects and counts the number of trees in a given satellite image using the YOLOv8 deep learning model, providing fast and accurate tree enumeration. | ![Tree Counting](Web%20app%20Screenshots/5980257bda1145a394ee5dec998dd68f.jpg) |
+| Species Identification Identifies and classifies different species of trees from satellite images by analyzing visual features, using a custom-trained YOLOv8 species detection model. | ![Species Detection](Web%20app%20Screenshots/9a0dde58574d471cb8e029b352a36eaf.jpg) |
+| Green Space Segmentation Segments the input image to distinguish between green vegetation (trees and forest areas) and non-vegetated land space, enabling easy environmental land cover analysis.| ![Green Segmentation](Web%20app%20Screenshots/bfbdf13d8435400593897094b5adad7b.jpg) |
+| Tree Count Comparison Compares satellite images from different dates (e.g., previous month vs. current) to analyze changes in tree count, helping to monitor deforestation or reforestation activities over time.| ![Tree Count Comparison](Web%20app%20Screenshots/e6a84b97ba0c4fd1a917f7d64c0bb6b4.jpg) |
 
 ---
 
