@@ -1,4 +1,3 @@
----
 
 # 🌳 EnviroScan: Tree Enumeration and Analysis Platform
 
