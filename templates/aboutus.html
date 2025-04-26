@@ -1,0 +1,131 @@
+{%if user%} {% extends "base2.html"%} {%else%} {% extends "base.html"%}
+{%endif%} {% block title %}AboutUs{% endblock %} {% with messages =
+get_flashed_messages() %} {%if messages%} {%for msg in messages%}
+<div class="alert alert-sucess" role="alert">{{msg}}</div>
+{%endfor%} {%endif%} {% endwith %} {% block content %}
+<div class="aboutus-page">
+  <div class="aboutus-in1">
+    <h1>Exploring EnviroScan: <span>Who We Are</span></h1>
+    <p>
+      Join us as we pioneer groundbreaking approaches to environmental
+      conservation. Welcome to a community where passion meets purpose, and
+      technology drives change. Together, let's shape a greener, more
+      sustainable future.
+    </p>
+    <button>Know More</button>
+  </div>
+  <div class="aboutus-in2" id="mission">
+    <div class="about-mission">
+      <h1>Our Mission</h1>
+      <h3>Revolutionizing Environmental Conservation Through Innovation</h3>
+      <p>
+        At EnviroScan, we believe that environmental sustainability is not just
+        a goal, but a fundamental responsibility. Our mission is to lead the
+        charge in revolutionizing environmental conservation through innovation.
+        We are committed to leveraging cutting-edge technology and data-driven
+        insights to address the complex challenges facing our planet's
+        ecosystems.<br />
+
+        <br />
+        With a steadfast dedication to sustainability, we strive to empower
+        individuals, organizations, and communities to make informed decisions
+        that positively impact the environment. Our solutions are designed to
+        provide actionable insights and practical tools that enable proactive
+        conservation efforts, ensuring a harmonious coexistence between humanity
+        and nature.
+      </p>
+    </div>
+    <div class="about-mission-img" style="margin: 30px 0px">
+      <img src="/static/aboutus1.jpg" alt="" height="500" width="350" />
+    </div>
+  </div>
+  <div class="about-in3" style="padding: 0px 0px 70px 0px">
+    <h1 style="text-align: center; margin-bottom: 50px">
+      Why Choose EnviroScan
+    </h1>
+    <div class="about-flex-card">
+      <div class="aboutus-card">
+        <div>
+          <div
+            style="
+              background-image: linear-gradient(
+                  rgba(0, 0, 0, 0.2),
+                  rgba(0, 0, 0, 0.4)
+                ),
+                url('/static/aboutus2.jpg');
+            "
+          >
+            <h3 style="margin-left: 20px; text-align: center; font-size: 32px">
+              Innovation
+            </h3>
+            <p style="margin-left: 20px">
+              We are at the forefront of innovation, continuously pushing the
+              boundaries of technology to develop solutions that drive positive
+              environmental change.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="aboutus-card">
+        <div>
+          <div
+            style="
+              background-image: linear-gradient(
+                  rgba(0, 0, 0, 0.2),
+                  rgba(0, 0, 0, 0.4)
+                ),
+                url('/static/aboutus3.jpg');
+            "
+          >
+            <h3 style="margin-left: 20px; text-align: center; font-size: 32px">
+              Accuracy
+            </h3>
+            <p style="margin-left: 20px">
+              Our solutions are built on scientific principles and rigorous
+              testing, ensuring accuracy and reliability in every aspect of our
+              work.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="aboutus-card">
+        <div>
+          <div
+            style="
+              background-image: linear-gradient(
+                  rgba(0, 0, 0, 0.2),
+                  rgba(0, 0, 0, 0.4)
+                ),
+                url('/static/aboutus4.jpg');
+            "
+          >
+            <h3 style="margin-left: 20px; text-align: center; font-size: 32px">
+              Sustainability
+            </h3>
+            <p style="margin-left: 20px">
+              We are committed to sustainability in everything we do, from our
+              internal operations to the solutions we provide to our clients.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aboutus-in4">
+      <div class="about-mission-img">
+        <img src="/static/aboutus5.jpg" alt="" height="400" width="350" />
+      </div>
+      <div class="about-we-do">
+        <h1>What We Do</h1>
+        <h3>Empowering Environmental Solutions Through Innovation</h3>
+        <p>
+          We are a team of environmental scientists, engineers, and technology
+          enthusiasts committed to making a positive impact on the world. With
+          diverse expertise and a shared vision for a sustainable future, we
+          work tirelessly to develop and deploy tools that address today's most
+          pressing environmental challenges.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}

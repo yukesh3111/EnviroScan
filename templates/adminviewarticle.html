@@ -1,0 +1,186 @@
+{%if role == 'admin'%}{% extends "baseadmin.html"%}{%else%}{% extends
+"base2.html"%}{%endif%}{% block title %}Tree_count{% endblock %} {% block
+content %} {% with messages = get_flashed_messages() %} {%if messages%} {%for
+msg in messages%}
+<div
+  class="alert alert-danger alert-dismissible fade show"
+  role="alert"
+  style="margin: 0px; border-radius: 0px"
+>
+  {{msg}}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{%endfor%} {%endif%} {% endwith %}
+<section
+  class="py-4 py-xl-5"
+  style="
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+      url('/static/viewarticlebanner.jpg');
+    background-position: center;
+    background-size: cover;
+    color: white;
+  "
+>
+  <div class="container h-100">
+    <div class="row h-100">
+      <div
+        class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center"
+      >
+        <div>
+          <h1 class="mb-3">Insightful Article Repository</h1>
+          <p class="mb-4">
+            Explore our vast array of articles designed to inform, educate, and
+            inspire. Each article is crafted to provide you with detailed
+            insights and a deeper understanding of the world.
+          </p>
+
+          <a href="#viewarticlehead"
+            ><button
+              class="btn fs-5 me-2"
+              type="button"
+              style="
+                border-style: none;
+                background: var(--bs-success);
+                padding: 7px 35px;
+                color: white;
+              "
+            >
+              Get Started
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container py-4 py-xl-5">
+  <div class="row mb-5">
+    <div class="col-md-8 col-xl-6 text-center mx-auto">
+      <h2 id="viewarticlehead">Content Explorer</h2>
+      <p>
+        Explore in-depth articles and insights on various topics. Engage with
+        detailed content and expand your knowledge.
+      </p>
+      {%if role=="admin"%}
+      <a href="/admin-post-article"
+        ><button
+          class="btn fs-5 me-2"
+          type="button"
+          style="
+            border-style: none;
+            background: var(--bs-success);
+            padding: 7px 62px;
+            color: white;
+          "
+        >
+          New Post +
+        </button></a
+      >
+      {%endif%}
+    </div>
+  </div>
+  <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+    {%for article in articles%}
+    <div class="col">
+      <div class="p-4">
+        <span
+          class="badge rounded-pill bg-primary mb-2"
+          style="padding: 7.2px 10.8px; background: green"
+          >Article</span
+        >
+        <h4>{{article.article_subtitle}}</h4>
+        <p id="abstraction">{{article.article_abstraction[:150]}}...</p>
+        <a href="article{{article.article_no}}/{{role}}">
+          <button
+            class="btn btn-success btn-lg"
+            type="submit"
+            style="
+              padding: 6px 24px;
+              font-size: 14px;
+              background: rgb(25, 135, 84);
+            "
+          >
+            Learn more
+          </button>
+        </a>
+        {%if role=="admin"%}
+        <a href="/delarticle/{{article.article_no}}">
+          <button
+            class="btn btn-success btn-lg"
+            type="submit"
+            style="
+              padding: 6px 24px;
+              font-size: 14px;
+              background: rgb(251, 21, 21);
+              border: none;
+            "
+          >
+            <svg
+              width="25px"
+              height="25px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#ffffff"
+              transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke="#CCCCCC"
+                stroke-width="0.8640000000000001"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M9.17065 4C9.58249 2.83481 10.6937 2 11.9999 2C13.3062 2 14.4174 2.83481 14.8292 4"
+                  stroke="#ffffff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                ></path>
+                <path
+                  d="M20.5 6H3.49988"
+                  stroke="#ffffff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                ></path>
+                <path
+                  d="M18.3735 15.3991C18.1965 18.054 18.108 19.3815 17.243 20.1907C16.378 21 15.0476 21 12.3868 21H11.6134C8.9526 21 7.6222 21 6.75719 20.1907C5.89218 19.3815 5.80368 18.054 5.62669 15.3991L5.16675 8.5M18.8334 8.5L18.6334 11.5"
+                  stroke="#ffffff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                ></path>
+                <path
+                  d="M9.5 11L10 16"
+                  stroke="#ffffff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                ></path>
+                <path
+                  d="M14.5 11L14 16"
+                  stroke="#ffffff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                ></path>
+              </g>
+            </svg>
+            <p style="display: inline; vertical-align: middle">Remove</p>
+          </button>
+        </a>
+        {%endif%}
+      </div>
+    </div>
+
+    {%endfor%}
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/script.min.js"></script>
+{%endblock%}

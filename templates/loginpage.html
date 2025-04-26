@@ -1,0 +1,46 @@
+{% extends "base.html"%} {% block title %}Login{% endblock %} {% block content
+%} {% with messages = get_flashed_messages() %} {%if messages%} {%for msg in
+messages%}
+<div
+  class="alert alert-danger alert-dismissible fade show"
+  role="alert"
+  style="margin: 0px"
+>
+  {{msg}}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{%endfor%} {%endif%} {% endwith %}
+<div class="loginpage">
+  <div class="login-container">
+    <div class="border">
+      <h3 class="master-tittle">Login</h3>
+      <div class="login-details">
+        <h4 class="subtittle">Have an account?</h4>
+        <form class="login-form" method="post">
+          <input
+            type="text"
+            name="username"
+            placeholder="User Id"
+            id="userid"
+            required
+          /><br />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+          /><br />
+          <button class="signin-button" type="submit">SIGN IN</button><br />
+        </form>
+        <a href="/adminlogin">Click here to Admin login</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

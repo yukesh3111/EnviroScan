@@ -1,0 +1,224 @@
+{% extends "base.html"%} {% block title %}Get-Started{% endblock %} {% with
+messages = get_flashed_messages() %} {%if messages%} {%for msg in messages%}
+<div
+  class="alert alert-danger alert-dismissible fade show"
+  role="alert"
+  style="margin: 0px"
+>
+  {{msg}}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{%endfor%} {%endif%} {% endwith %} {% block content %}
+<section
+      style="
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+          url('static/getstartheroback.jpg') center / cover no-repeat;
+        padding: 180px 0px;
+      "
+    >
+      <div class="container h-100" style="border: 160px 0px">
+        <div class="row h-100">
+          <div
+            class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center"
+          >
+            <div>
+              <h2 class="text-uppercase mb-3" style="color: white">
+                Explore the World of Tree Enumeration and Green Space Insights
+              </h2>
+              <p class="mb-4" style="color: white">
+                Welcome to our Tree Enumeration platform! Upload images to
+                quickly count trees, identify species, and analyze green and
+                land cover. Our advanced tools provide precise data to support
+                environmental studies and sustainable planning. Whether for
+                urban planning or ecological monitoring, get detailed insights
+                at your fingertips. Start now to explore and protect the green
+                spaces around you!
+              </p>
+                <a style="text-decoration: none" href="/login">
+              <button style="background-color: rgb(25, 135, 84);color: white;padding: 8px 50px;border-radius: 7px;border: none">
+                  Get Started
+              </button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="row gy-4 gy-md-0">
+        <div class="col-md-6">
+          <div class="p-xl-5 m-xl-5">
+            <img
+              class="rounded img-fluid w-100 fit-cover"
+              style="min-height: 300px"
+              src="static/getstartimg1.jpg"
+            />
+          </div>
+        </div>
+        <div class="col-md-6 d-md-flex align-items-md-center">
+          <div style="max-width: 500px">
+            <h3
+              class="text-uppercase fw-bold"
+              style="text-align: start; font-size: 26px; margin-bottom: 20px"
+            >
+              Transform Images into Valuable Environmental Insights
+            </h3>
+            <p style="text-align: start">
+              Unlock the potential of your images with our powerful tree
+              enumeration platform. Effortlessly count trees, identify species,
+              and analyze green cover versus land cover with precision. Our app
+              simplifies environmental analysis, providing data-driven insights
+              to enhance sustainability efforts and green space management. Get
+              started today and see how easy it is to make a difference for the
+              environment!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section
+      style="
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+          url('static/getstartheroback2.jpg') center / cover no-repeat;
+        padding: 60px 0px;
+        margin-top: 60px;
+      "
+    >
+      <div class="container h-100" style="border: 160px 0px">
+        <div class="row h-100">
+          <div
+            class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center"
+          >
+            <div>
+              <h2 class="text-uppercase mb-3" style="color: white">
+                Precision and Reliability in <br />Environmental Analysis
+              </h2>
+              <p style="color: white">
+                Our web application delivers exceptional model accuracy for tree
+                counting, species identification, and green cover analysis.
+                Utilizing advanced algorithms, it ensures reliable data for
+                informed decision-making. Trust our technology to enhance your
+                environmental research and conservation efforts.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="row gy-4 gy-md-0">
+        <div
+          class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-center"
+        >
+          <div style="max-width: 500px">
+            <h3
+              class="text-uppercase fw-bold"
+              style="text-align: start; font-size: 26px; margin-bottom: 20px"
+            >
+              Comprehensive Tree Analysis in One Platform
+            </h3>
+            <p class="my-3" style="text-align: start">
+              Our web app combines advanced tools for tree counting, species
+              identification, and green cover analysis—all from a single image.
+              Whether you're an environmental researcher, urban planner, or
+              nature enthusiast, our platform delivers fast, accurate results to
+              support sustainable decision-making. Experience the future of
+              environmental monitoring with ease and precision.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-xl-5 m-xl-5">
+            <img
+              class="rounded img-fluid w-100 fit-cover"
+              style="min-height: 300px"
+              src="static/getstartimg2.jpg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-flex flex-column align-items-center py-4 py-xl-5">
+      <div
+        class="row gy-4 row-cols-1 row-cols-md-2 w-100"
+        style="max-width: 800px"
+      >
+        <div class="col order-md-first">
+          <div class="card">
+            <img
+              class="card-img w-100 d-block"
+              src="static/getstartimg3.jpg"
+            />
+            <div
+              class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center p-4"
+              style="color: white"
+            >
+              <h4>Comprehensive Tree Analysis in One Platform</h4>
+              <p>
+                Our web app combines advanced tools for tree counting, species
+                identification, and green cover analysis—all from a single
+                image.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col d-md-flex order-first justify-content-md-start align-items-md-end order-md-1"
+        >
+          <div style="width: 100%">
+            <h4>Innovative Solutions for Sustainable Tree Management</h4>
+            <p>
+              Our web app enhances green space management by providing
+              user-friendly tools for tree counting, species identification, and
+              green cover analysis, empowering informed and sustainable
+              decision-making.
+            </p>
+          </div>
+        </div>
+        <div class="col order-md-2">
+          <div class="card">
+            <img
+              class="card-img w-100 d-block"
+              src="static/getstartimg4.jpg"
+            />
+            <div
+              class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center p-4"
+              style="color: white"
+            >
+              <h4>Accurate Tree Species Identification Made Simple</h4>
+              <p>
+                Our platform analyzes your images to recognize various tree
+                species, offering detailed insights into biodiversity and
+                ecological health.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col order-md-2">
+          <div class="card">
+            <img
+              class="card-img w-100 d-block"
+              src="static/getstartimg5.jpg"
+            />
+            <div
+              class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center p-4"
+              style="color: white"
+            >
+              <h4>Effortless Tree Counting at Your Fingertips</h4>
+              <p>
+                Simplify the process of tree enumeration and gain valuable
+                insights in just a few clicks. Start counting today and
+                contribute to a greener tomorrow!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{%endblock%}

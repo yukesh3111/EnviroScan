@@ -1,0 +1,272 @@
+{% extends "baseadmin.html"%} {% block title %}home{% endblock %} {% with
+messages = get_flashed_messages() %} {%if messages%} {%for msg in messages%}
+<div
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+  style="margin: 0px"
+>
+  {{ msg }}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{%endfor%} {%endif%} {% endwith %} {% block content %}
+<section
+  class="py-4 py-xl-5"
+  style="
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+      url('/static/karsten-wurth-M84bYZnCMQg-unsplash.jpg') center / cover
+        no-repeat;
+  "
+>
+  <div class="container h-100">
+    <div class="row h-100">
+      <div
+        class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center"
+      >
+        <div>
+          <h2
+            class="text-uppercase fw-bold mb-3"
+            style="color: rgb(255, 255, 255)"
+          >
+            <h2>
+              <span style="color: white; font-weight: 700"
+                >Comprehensive Admin Dashboard and Control System</span
+              >
+            </h2>
+          </h2>
+          <p class="mb-4" style="color: rgb(255, 255, 255)">
+            <span
+              >The Admin Dashboard is your centralized hub for real-time
+              analytics, user management, and streamlined operations. It
+              enhances productivity and security while providing a customizable,
+              efficient platform for informed decision-making.</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container d-flex flex-column align-items-center py-4 py-xl-5">
+  <div
+    class="row gy-4 row-cols-1 row-cols-md-2 w-100"
+    style="max-width: 800px"
+    class="articleoption"
+  >
+    <div class="col order-md-first">
+      <a href="/article{{max1}}/{{role}}">
+        <div class="card card-article" style="color: white">
+          <img
+            class="card-img w-100 d-block"
+            src="/static/bailey-zindel-NRQV-hBF10M-unsplash.jpg"
+          />
+          <div
+            class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center p-4"
+          >
+            {%if article1_title%}
+            <h4>{{article1_title}}</h4>
+            <p id="paragraph">{{article1_abstraction}}</p>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                var paragraph = document.getElementById("paragraph");
+                var text = paragraph.innerText;
+
+                if (text.length > 90) {
+                  paragraph.innerText = text.substring(0, 90) + "...";
+                }
+              });
+            </script>
+            {%else%}
+            <h4>Title</h4>
+            <p>
+              Volutpat habitasse risus posuere, commodo fusce donec. Turpis
+              donec tristique.
+            </p>
+            {%endif%}
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      class="col d-md-flex order-first justify-content-md-start align-items-md-end order-md-1"
+      style="margin-bottom: 30px"
+    >
+      <div style="width: 80%">
+        <h2 style="margin-right: 0px">
+          <strong
+            ><span style="color: var(--tw-prose-bold)"
+              >Latest News and Analysis</span
+            ></strong
+          >
+        </h2>
+        <p>
+          <span style="color: rgb(13, 13, 13)"
+            >This recent article explores the latest developments and insights,
+            highlighting new trends, innovations, and significant
+            breakthroughs.</span
+          >
+        </p>
+      </div>
+    </div>
+    <a href="/article{{max2}}/{{role}}">
+      <div class="col order-md-2" style="color: white">
+        <div class="card card-article">
+          <img
+            class="card-img w-100 d-block"
+            src="/static/dave-hoefler-frmovOarYdE-unsplash.jpg"
+          />
+          <div
+            class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center p-4"
+            style="color: white"
+          >
+            {%if article2_title%}
+            <h4>{{article2_title}}</h4>
+            <p id="paragraph2">{{article2_abstraction}}</p>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                var paragraph = document.getElementById("paragraph2");
+                var text = paragraph.innerText;
+
+                if (text.length > 90) {
+                  paragraph.innerText = text.substring(0, 90) + "...";
+                }
+              });
+            </script>
+            {%else%}
+            <h4>Title</h4>
+            <p>
+              Volutpat habitasse risus posuere, commodo fusce donec. Turpis
+              donec tristique.
+            </p>
+            {%endif%}
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="/article{{max3}}/{{role}}">
+      <div class="col order-md-2">
+        <div class="card card-article" style="color: white">
+          <img
+            class="card-img w-100 d-block"
+            src="/static/johannes-plenio-RwHv7LgeC7s-unsplash.jpg"
+          />
+          <div
+            class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center p-4"
+          >
+            {%if article3_title%}
+            <h4>{{article3_title}}</h4>
+            <p id="paragraph3">{{article3_abstraction}}</p>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                var paragraph = document.getElementById("paragraph3");
+                var text = paragraph.innerText;
+
+                if (text.length > 90) {
+                  paragraph.innerText = text.substring(0, 90) + "...";
+                }
+              });
+            </script>
+            {%else%}
+            <h4>Title</h4>
+            <p>
+              Volutpat habitasse risus posuere, commodo fusce donec. Turpis
+              donec tristique.
+            </p>
+            {%endif%}
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="container py-4 py-xl-5">
+  <div class="row mb-5">
+    <div class="col-md-8 col-xl-6 text-center mx-auto">
+      <h2>
+        <strong
+          ><span style="color: var(--tw-prose-bold)"
+            >Simplified Solutions with EnivroScan</span
+          ></strong
+        >
+      </h2>
+      <p>
+        <span style="color: rgb(13, 13, 13)"
+          >Revolutionizing environmental monitoring with user-friendly,
+          efficient technology.</span
+        >
+      </p>
+    </div>
+  </div>
+  <div class="row gy-4 row-cols-1 row-cols-md-2">
+    <div class="col">
+      <div class="d-flex flex-column flex-lg-row">
+        <div class="w-100">
+          <img
+            class="rounded img-fluid d-block w-100 fit-cover"
+            style="height: 200px"
+            src="/static/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg"
+          />
+        </div>
+        <div class="py-4 py-lg-0 px-lg-4">
+          <h4>Post Articles</h4>
+          <p>
+            Publish and share your latest articles with the world. Our intuitive
+            interface streamlines the process, allowing you to focus on crafting
+            compelling content while we handle the rest.
+          </p>
+          <a href="/admin-post-article"
+            ><button
+              class="btn btn-primary"
+              type="button"
+              style="
+                padding: 8px 33px;
+                background-color: rgb(25, 135, 84);
+                border: none;
+              "
+            >
+              Get Started
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-flex flex-column flex-lg-row">
+        <div class="w-100">
+          <img
+            class="rounded img-fluid d-block w-100 fit-cover"
+            style="height: 200px"
+            src="/static/maksim-shutov-z_HDrTQxNEI-unsplash.jpg"
+          />
+        </div>
+        <div class="py-4 py-lg-0 px-lg-4">
+          <h4>User Management</h4>
+          <p>
+            Effortlessly manage user accounts, roles, and permissions with our
+            intuitive user management system. Ensure secure, organized access to
+            resources while enhancing productivity and control.
+          </p>
+          <a href="/user-mangement"
+            ><button
+              class="btn btn-primary"
+              type="button"
+              style="
+                padding: 8px 33px;
+                background-color: rgb(25, 135, 84);
+                border: none;
+              "
+            >
+              Get Started
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

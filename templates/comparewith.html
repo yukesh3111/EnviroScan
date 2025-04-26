@@ -1,0 +1,337 @@
+{% extends "base2.html"%} {% block title %}Tree_count{% endblock %} {% block
+content %} {% with messages = get_flashed_messages() %} {%if messages%} {%for
+msg in messages%}
+<div
+  class="alert alert-danger alert-dismissible fade show"
+  role="alert"
+  style="margin: 0px; border-radius: 0px"
+>
+  {{msg}}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{%endfor%} {%endif%} {% endwith %}
+
+<section
+  class="py-4 py-xl-5"
+  style="
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+      url('/static/greenspacebanner.jpg');
+    background-position: center;
+    background-size: cover;
+  "
+>
+  <div class="container h-100">
+    <div class="row h-100" style="background: rgba(255, 255, 255, 0)">
+      <div
+        class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center"
+      >
+        <div>
+          <h2
+            class="text-uppercase fw-bold mb-3"
+            style="color: rgb(255, 255, 255)"
+          >
+            Overview Comparison: A broad summary of the key aspects being
+            compared.
+          </h2>
+          <p class="mb-4" style="color: rgb(255, 255, 255)">
+            we provide a comprehensive overview that summarizes the primary
+            aspects being compared between existed predicted images and its
+            competitors. This summary highlights key features, performance
+            metrics, pricing structures, and other critical factors to help you
+            make an informed decision.
+          </p>
+          <a href="#uploads">
+            <button
+              class="btn btn-success btn-lg"
+              type="submit"
+              style="padding: 8px 30px; background: rgb(25, 135, 84)"
+            >
+              Get Started
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div
+  class="bg-light border rounded border-light jumbotron py-5 px-4"
+  id="uploads"
+>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Upload Image</h4>
+      <form method="post" enctype="multipart/form-data">
+        <p>Select the image to upload</p>
+        <input
+          class="form-control"
+          type="file"
+          id="inputFileToLoad"
+          name="image"
+        />
+        <p style="margin: 5px 0px">
+          <span
+            style="
+              color: var(--bs-card-color);
+              background-color: var(--bs-card-bg);
+            "
+            >Select the destination path for the upload</span
+          >
+        </p>
+        <p>Enter Latitude</p>
+        <input type="text" name="latitude" class="form-control" />
+        <p>Enter Longitude</p>
+        <input type="text" name="longitude" class="form-control" />
+        <div class="mt-4">
+          <button
+            class="btn btn-success btn-lg"
+            type="submit"
+            style="padding: 6px 24px; background: rgb(25, 135, 84)"
+            onclick="reloadContent()"
+          >
+            Upload
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div>
+  <div class="row justify-content-center">
+    <div class="col-8" style="margin: 20px 0px">
+      <h1 style="text-align: center; margin-bottom: 7px">
+        Visual Comparison: Uploaded and Predicted Images
+      </h1>
+      <p style="text-align: center">
+        Utilize our advanced image analysis to accurately count the number of
+        trees in your uploaded images. This feature provides precise visual
+        insights, aiding in environmental monitoring and management. Enhance
+        your understanding with detailed and reliable tree count data.
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-lg-0">
+      <div class="hover hover-5 text-white rounded">
+        {%if filename%}
+        <img
+          src="{{ url_for('static', filename='adminuploads/' + filename) }}"
+          alt="Uploaded Image"
+        />
+        {%else%}
+        <img src="/static/image-placeholder.png" alt="Uploaded Image" />
+        {%endif%}
+      </div>
+      <h2 style="margin: 11px 0px 8px 16px; text-align: center">
+        Original Image
+      </h2>
+    </div>
+    <div class="col-md-6 mb-lg-0">
+      <div class="hover hover-5 text-white rounded">
+        {%if filename%}
+        <img
+          src="{{ url_for('static', filename='greenspace/'+filename) }}"
+          alt="Uploaded Image"
+        />
+        {%else%}
+        <img src="/static/image-placeholder.png" alt="Uploaded Image" />
+        {%endif%}
+      </div>
+      <h2 style="margin: 11px 0px 8px 16px; text-align: center">
+        Processed Image
+      </h2>
+    </div>
+  </div>
+</div>
+<div style="display: flex; justify-content: center; margin: 30px 40px">
+  <div class="row gy-4 row-cols-1 row-cols-md-2">
+    <div class="col">
+      <div class="d-flex flex-column flex-lg-row">
+        <div class="w-100">
+          <img
+            class="rounded img-fluid d-block w-100 fit-cover"
+            style="height: 200px"
+            src="/static/comparewith1.jpg"
+          />
+        </div>
+        <div class="py-4 py-lg-0 px-lg-4">
+          <h4>Previous Area Prediction</h4>
+          <p>
+            Previous analysis indicates a total of{%if previouscount%}
+            <span style="color: rgb(25, 135, 84); font-weight: 700"
+              >{{previouscount}} trees</span
+            >
+            {%else%}
+            <span style="color: rgb(25, 135, 84); font-weight: 700"
+              >0 trees</span
+            >
+            {%endif%} in the uploaded image. The environmental conditions
+            observed are favorable, supporting healthy tree growth and
+            sustainability. These insights assist in effective environmental
+            monitoring and management.
+          </p>
+          <p>
+            Total number of tree is {%if previouscount%}
+            <span
+              id="previous"
+              style="color: rgb(25, 135, 84); font-weight: 700; font-size: 16px"
+              >{{previouscount}}</span
+            >
+            trees {%else%}
+            <span
+              style="color: rgb(25, 135, 84); font-weight: 700; font-size: 16px"
+              >0 trees</span
+            >
+            {%endif%}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-flex flex-column flex-lg-row">
+        <div class="w-100">
+          <img
+            class="rounded img-fluid d-block w-100 fit-cover"
+            style="height: 200px"
+            src="/static/comparewith2.jpg"
+          />
+        </div>
+        <div class="py-4 py-lg-0 px-lg-4">
+          <h4>Current Area Prediction</h4>
+          <p>
+            The current prediction identifies {%if presentcount%}
+            <span style="color: rgb(25, 135, 84); font-weight: 700"
+              >{{presentcount}} trees</span
+            >
+            {%else%}
+            <span style="color: rgb(25, 135, 84); font-weight: 700"
+              >0 trees</span
+            >
+            {%endif%} in the uploaded image. Environmental conditions remain
+            favorable, ensuring optimal growth and health of the trees. These
+            insights aid in ongoing environmental assessment and resource
+            management.
+          </p>
+          <p>
+            Total number of tree is {%if presentcount%}
+            <span
+              id="present"
+              style="color: rgb(25, 135, 84); font-weight: 700; font-size: 16px"
+              >{{presentcount}}</span
+            >
+            trees {%else%}
+            <span
+              style="color: rgb(25, 135, 84); font-weight: 700; font-size: 16px"
+              >0 trees</span
+            >
+            {%endif%}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align: center; margin: 30px 0px">
+  <h3>Summary of Existing and Current Prediction Comparison</h3>
+  <h5>
+    Analyze changes in tree counts and environmental conditions between past and
+    current predictions for detailed insights.
+  </h5>
+</div>
+
+<div class="compare-des1">
+  <div>
+    <div id="chartContainer" style="height: 300px; min-width: 350px"></div>
+    {%if presentcount%}
+    <script type="text/javascript">
+      present = document.getElementById("present").innerHTML;
+      previous = document.getElementById("previous").innerHTML;
+      console.log(present, previous);
+      window.onload = function (present,previous) {
+        var chart = new CanvasJS.Chart("chartContainer", {
+          theme: "light2", // "light2", "dark1", "dark2"
+          animationEnabled: true, // change to true
+
+          data: [
+            {
+              // Change type to "bar", "area", "spline", "pie",etc.
+              type: "column",
+              dataPoints: [
+                { label: "Present", y: {{presentcount}} },
+                { label: "Previous", y: {{previouscount}} },
+              ],
+            },
+          ],
+        });
+        chart.render();
+      };
+    </script>
+    {%else%}
+    <script type="text/javascript">
+      window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+          theme: "light2", // "light2", "dark1", "dark2"
+          animationEnabled: false, // change to true
+          title: {
+            text: "Comparision between Current vs Previous image",
+          },
+          data: [
+            {
+              // Change type to "bar", "area", "spline", "pie",etc.
+              type: "column",
+              dataPoints: [
+                { label: "Current Image", y: 10 },
+                { label: "Previous Image", y: 15 },
+              ],
+            },
+          ],
+        });
+        chart.render();
+      };
+    </script>
+    {%endif%}
+    <script
+      type="text/javascript"
+      src="https://cdn.canvasjs.com/canvasjs.min.js"
+    ></script>
+  </div>
+  <div class="compdes col-md-12">
+    <h3 class="col-md-12">
+      Tree Population Analysis: Image Comparison Results
+    </h3>
+    {%if bot%}
+    <p class="col-md-12">{{bot}}</p>
+    {%else%}
+    <p class="col-md-12">
+      To begin analyzing and comparing the number of trees in your image, please
+      upload a clear photo. Our advanced algorithms will process the image to
+      provide accurate tree counts and assess environmental conditions. This
+      initial step ensures precise and meaningful insights for effective
+      environmental monitoring and decision-making.
+    </p>
+    {%endif%}
+  </div>
+</div>
+<div
+  class="loading-screen"
+  id="loadingScreen"
+  style="background-color: rgba(0, 0, 0, 0.7)"
+>
+  <div class="loader">
+    <div class="inner one"></div>
+    <div class="inner two"></div>
+    <div class="inner three"></div>
+    <br />
+    <br />
+    <div style="margin-left: -15px"><p>Loading</p></div>
+  </div>
+</div>
+
+{%endblock%}

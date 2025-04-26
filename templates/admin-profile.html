@@ -1,0 +1,55 @@
+{% extends "baseadmin.html"%} {% block title %}User-Profile-{{name}}{% endblock
+%} {% block content %} {% with messages = get_flashed_messages() %} {%if
+messages%} {%for msg in messages%}
+<div
+  class="alert alert-danger alert-dismissible fade show"
+  role="alert"
+  style="margin: 0px; border-radius: 0px"
+>
+  {{msg}}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{%endfor%} {%endif%} {% endwith %}
+<div class="profile-page">
+  <div class="profile-img">
+    <div class="img-div">
+      <img
+        src="/static/userimage.png"
+        height="150"
+        width="150"
+        style="margin-bottom: 20px"
+      />
+      <p>{{adminname}}</p>
+      <p>{{email}}</p>
+    </div>
+  </div>
+  <div class="profile-setings">
+    <h2>Profile Settings</h2>
+    <div class="name">
+      <div>
+        <h5>Name</h5>
+        <p>{{name}}</p>
+      </div>
+    </div>
+    <div class="full-row">
+      <h5>Email</h5>
+      <p>{{email}}</p>
+    </div>
+    <div class="name-2">
+      <div>
+        <h5>Code</h5>
+        <p>+91</p>
+      </div>
+      <div>
+        <h5>Phone Number</h5>
+        <p>{{phone_no}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

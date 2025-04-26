@@ -1,0 +1,70 @@
+* {
+  font-family: Poppins;
+  margin: 0px;
+}
+body {
+  background: none;
+}
+.profile-setings {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+  margin: 0px 30px;
+}
+.profile-setings h2 {
+  margin-bottom: 20px;
+}
+.name {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  column-gap: 20px;
+}
+.name-2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
+  column-gap: 20px;
+}
+.name-2 p {
+  padding: 10px 20px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+}
+.name p {
+  padding: 10px 20px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+}
+.full-row p {
+  padding: 10px 20px;
+  border: 1px solid gainsboro;
+  margin: 10px 0px;
+  border-radius: 5px;
+}
+.img-div {
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-items: center;
+}
+.img-div img {
+  border-radius: 100px;
+  color: black;
+}
+.img-div p {
+  text-align: center;
+}
+.profile-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 50px;
+  padding: 90px 30px;
+  flex-wrap: wrap;
+}
+.profile-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}

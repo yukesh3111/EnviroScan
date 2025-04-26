@@ -1,0 +1,119 @@
+div.jumbotron.hero-technology {
+  color: #fff;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+h1.hero-title,
+h2.hero-title,
+h3.hero-title {
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-weight: 500;
+}
+p.hero-subtitle {
+  max-width: 600px;
+  margin: 25px auto;
+  padding: 10px 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
+  font-weight: 500;
+}
+.compare-des {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.compare-des1 {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.compare-des1 div {
+  margin: 25px 0px;
+}
+.chart-container {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+.compdes {
+  max-width: 500px;
+}
+
+.hover {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 60%;
+}
+
+.hover-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  transition: all 0.4s;
+}
+
+.hover img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+}
+
+.hover-5::after {
+  content: "";
+  width: 100%;
+  height: 10px;
+  background: #47c650;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  display: block;
+  transition: all 0.3s;
+  z-index: 999;
+}
+
+.hover-5 .hover-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hover-5-title {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  transition: all 0.3s;
+  padding: 2rem 3rem;
+  z-index: 99;
+}
+
+.hover-5-title span {
+  transition: all 0.4s;
+  opacity: 0;
+  color: #47c650;
+}
+
+.hover-5:hover .hover-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.hover-5:hover .hover-5-title {
+  bottom: 0;
+}
+
+.hover-5:hover .hover-5-title span {
+  opacity: 1;
+}
+
+.hover-5:hover::after {
+  bottom: 0;
+}

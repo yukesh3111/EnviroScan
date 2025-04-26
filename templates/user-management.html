@@ -1,0 +1,175 @@
+{% extends "baseadmin.html"%} {% block title %}home{% endblock %} {% with
+messages = get_flashed_messages() %} {%if messages%} {%for msg in messages%}
+<div
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+  style="margin: 0px"
+>
+  {{ msg }}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{%endfor%} {%endif%} {% endwith %} {% block content %}
+<div
+  style="
+    display: flex;
+    justify-content: end;
+    padding: 0px 80px;
+    margin-top: 30px;
+  "
+>
+  <form method="POST" action="{{ url_for('search') }}">
+    <input
+      type="text"
+      name="search_query"
+      placeholder="Search by Username"
+      style="
+        border-radius: 5px;
+        border: 1px solid #198754;
+        padding-left: 10px;
+        height: 30px;
+      "
+    />
+    <button
+      type="submit"
+      style="
+        width: 40px;
+        border-radius: 70px;
+        padding: 8px 9px;
+        background-color: #198754;
+        border: none;
+      "
+    >
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
+            stroke="#ffffff"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </g>
+      </svg>
+    </button>
+  </form>
+</div>
+<div class="container">
+  <div class="table-responsive h-100">
+    <table class="content-table" style="width: 100%">
+      <thead>
+        <tr style="text-align: center">
+          <th>Serial No</th>
+          <th>Username</th>
+          <th>Name</th>
+          <th>Surename</th>
+          <th>Phone No</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for user in user%}
+        <tr class="active-rows" style="text-align: center">
+          <td>{{loop.index}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.surename}}</td>
+          <td>{{user.phone_no}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.address}}</td>
+          <td>{{user.city}}</td>
+          <td>{{user.state}}</td>
+          <td>
+            <a href="/user-mangement/{{user.username}}"
+              ><button class="remove-but" style="width: 110px">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-trash3"
+                  viewBox="0 0 16 16"
+                  style="margin-bottom: -2px; font-weight: 700"
+                >
+                  <path
+                    d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"
+                  />
+                </svg>
+                <p
+                  style="
+                    display: inline;
+                    vertical-align: middle;
+                    margin-left: 5px;
+                  "
+                >
+                  Remove
+                </p>
+              </button></a
+            >
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+      {%if items%}
+      <tbody>
+        {%for user in items%}
+        <tr class="active-rows" style="text-align: center">
+          <td>{{loop.index}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.surename}}</td>
+          <td>{{user.phone_no}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.address}}</td>
+          <td>{{user.city}}</td>
+          <td>{{user.state}}</td>
+          <td>
+            <a href="/user-mangement/{{user.username}}"
+              ><button class="remove-but" style="width: 110px">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-trash3"
+                  viewBox="0 0 16 16"
+                  style="margin-bottom: -2px; font-weight: 700"
+                >
+                  <path
+                    d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"
+                  />
+                </svg>
+                <p
+                  style="
+                    display: inline;
+                    vertical-align: middle;
+                    margin-left: 5px;
+                  "
+                >
+                  Remove
+                </p>
+              </button></a
+            >
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+      {%endif%}
+    </table>
+  </div>
+</div>
+{%endblock%}

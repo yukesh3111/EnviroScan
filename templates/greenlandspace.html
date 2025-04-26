@@ -1,0 +1,300 @@
+{% extends "base2.html"%} {% block title %}home{% endblock %} {% with messages =
+get_flashed_messages() %} {%if messages%} {%for msg in messages%}
+<div
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+  style="margin: 0px"
+>
+  {{msg}}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{%endfor%} {%endif%} {% endwith %} {% block content %}
+
+<section
+  class="py-4 py-xl-5"
+  style="
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+      url('/static/greenspacebanner.jpg');
+    background-position: center;
+    background-size: cover;
+  "
+>
+  <div class="container h-100">
+    <div class="row h-100" style="background: rgba(255, 255, 255, 0)">
+      <div
+        class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center"
+      >
+        <div>
+          <h2
+            class="text-uppercase fw-bold mb-3"
+            style="color: rgb(255, 255, 255)"
+          >
+            Uncovering Nature's Changes: Advanced Tree Detection & Analysis
+          </h2>
+          <p class="mb-4" style="color: rgb(255, 255, 255)">
+            Empowering Environmental Stewardship with Innovative Tree Monitoring
+            Solutions. Seamlessly Track, Compare, and Analyze Tree Growth and
+            Health Over Time.
+          </p>
+          <a href="#uploads">
+            <button
+              class="btn btn-success btn-lg"
+              type="submit"
+              style="padding: 8px 30px; background: rgb(25, 135, 84)"
+            >
+              Get Started
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div
+  class="bg-light border rounded border-light jumbotron py-5 px-4"
+  id="uploads"
+>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Upload Image</h4>
+      <form method="post" enctype="multipart/form-data">
+        <p>Select the image to upload</p>
+        <input
+          class="form-control"
+          type="file"
+          id="inputFileToLoad"
+          name="image"
+        />
+        <p style="margin: 5px 0px">
+          <span
+            style="
+              color: var(--bs-card-color);
+              background-color: var(--bs-card-bg);
+            "
+            >Select the destination path for the upload</span
+          >
+        </p>
+        <div class="mt-4">
+          <button
+            class="btn btn-success btn-lg"
+            type="submit"
+            style="padding: 6px 24px; background: rgb(25, 135, 84)"
+            onclick="reloadContent()"
+          >
+            Upload
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div>
+  <div class="row justify-content-center">
+    <div class="col-8" style="margin: 20px 0px">
+      <h1 style="text-align: center; margin-bottom: 7px">
+        Optimizing Land and Green Spaces for a Sustainable Future
+      </h1>
+      <p style="text-align: center">
+        Explore the integration of advanced technology in optimizing land and
+        green spaces. Learn how balanced urban development and environmental
+        preservation can coexist through innovative land management practices,
+        ensuring sustainable growth and ecological health for future
+        generations.
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-lg-0" style="padding: 10px">
+      <div class="hover hover-5 text-white rounded">
+        {%if filename%}
+        <img
+          src="{{ url_for('static', filename='adminuploads/' + filename) }}"
+          alt="Uploaded Image"
+        />
+        {%else%}
+        <img src="/static/image-placeholder.png" alt="Uploaded Image" />
+        {%endif%}
+      </div>
+      <h2 style="margin: 11px 0px 8px 16px; text-align: center">
+        Original Image
+      </h2>
+    </div>
+    <div class="col-md-6 mb-lg-0" style="padding: 10px">
+      <div class="hover hover-5 text-white rounded">
+        {%if filename%}
+        <img
+          src="{{ url_for('static', filename='greenspace/'+filename) }}"
+          alt="Uploaded Image"
+        />
+        {%else%}
+        <img src="/static/image-placeholder.png" alt="Uploaded Image" />
+        {%endif%}
+      </div>
+      <h2 style="margin: 11px 0px 8px 16px; text-align: center">
+        Processed Image
+      </h2>
+    </div>
+  </div>
+</div>
+<div style="text-align: center; margin: 30px 0px">
+  <h3>Tree Population Analysis: Image Comparison Results</h3>
+  <h5>
+    Monitoring Changes in Tree Counts Over Time with Advanced Detection
+    Technology
+  </h5>
+</div>
+
+<div class="compare-des1">
+  <div>
+    <div id="chartContainer" style="height: 300px; min-width: 350px"></div>
+    {%if greenpercentage%}
+    <script type="text/javascript">
+      window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+          legend: {
+            verticalAlign: "bottom",
+            horizontalAlign: "center",
+          },
+          data: [
+            {
+              startAngle: 90,
+              indexLabelFontSize: 16,
+              indexLabelFontFamily: "Poppins",
+              indexLabelFontColor: "black",
+              indexLabelLineColor: "darkgrey",
+              indexLabelPlacement: "outside",
+              type: "doughnut",
+              showInLegend: true,
+              dataPoints: [
+                {
+                  y: {{greenpercentage}},
+                  legendText: "Green Space",
+                  indexLabel: "Green Space",
+                  color: "#32D74B",
+                },
+                {
+                  y: {{landpercentage}},
+                  legendText: "Land Space",
+                  indexLabel: "Land Space",
+                  color: "#FF4906",
+                },
+              ],
+            },
+          ],
+        });
+
+        chart.render();
+      };
+    </script>
+    {%else%}
+    <script type="text/javascript">
+      window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+          legend: {
+            verticalAlign: "bottom",
+            horizontalAlign: "center",
+          },
+          data: [
+            {
+              startAngle: 0,
+              indexLabelFontSize: 16,
+              indexLabelFontFamily: "Poppins",
+              indexLabelFontColor: "black",
+              indexLabelLineColor: "darkgrey",
+              indexLabelPlacement: "outside",
+              type: "doughnut",
+              showInLegend: true,
+              dataPoints: [
+                {
+                  y: 60,
+                  legendText: "Green Space",
+                  indexLabel: "Green Space",
+                  color: "#32D74B",
+                },
+                {
+                  y: 40,
+                  legendText: "Land Space",
+                  indexLabel: "Land Space",
+                  color: "#FF4906",
+                },
+              ],
+            },
+          ],
+        });
+
+        chart.render();
+      };
+    </script>
+    {%endif%}
+    <script
+      type="text/javascript"
+      src="https://cdn.canvasjs.com/canvasjs.min.js"
+    ></script>
+  </div>
+  <div class="compdes">
+    <h3 style="max-width: 400px">
+      Tree Population Analysis: Image Comparison Results
+    </h3>
+    {%if bot%}
+    <p style="max-width: 400px">{{bot}}</p>
+    {%else%}
+    <p style="max-width: 400px">
+      In our latest analysis utilizing cutting-edge tree detection technology,
+      we've meticulously compared two images capturing the tree populations at
+      distinct time points. The initial image, dated June 1, 2023, showcased a
+      thriving landscape with a recorded count of 150 trees. However, our recent
+      examination on June 1, 2024, depicted a concerning decline, registering
+      only 140 trees. This noticeable reduction of 10 trees, equivalent to a
+      6.67% decrease, underscores the pressing need for heightened environmental
+      vigilance. Potential factors contributing to this decline may include
+      rampant deforestation, disease outbreaks, encroaching urbanization, or
+      adverse climatic conditions. Such shifts in tree populations carry
+      profound ecological repercussions, including compromised air quality,
+      habitat loss for biodiversity, and escalated carbon emissions.
+    </p>
+    {%endif%}
+  </div>
+</div>
+<div class="container py-4 py-xl-5">
+  <div class="row gy-4 gy-md-0">
+    <div
+      class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-center"
+    >
+      <div style="max-width: 350px">
+        <h2 class="fw-bold">Recomatations</h2>
+        <p class="my-3">{{rec}}</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="p-xl-5 m-xl-5">
+        <img
+          class="rounded img-fluid w-100 fit-cover"
+          style="min-height: 300px"
+          src="/static/dave-hoefler-frmovOarYdE-unsplash.jpg"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="loading-screen"
+  id="loadingScreen"
+  style="background-color: rgba(0, 0, 0, 0.7)"
+>
+  <div class="loader">
+    <div class="inner one"></div>
+    <div class="inner two"></div>
+    <div class="inner three"></div>
+    <br />
+    <br />
+    <div style="margin-left: -15px"><p>Loading</p></div>
+  </div>
+</div>
+
+{%endblock%}

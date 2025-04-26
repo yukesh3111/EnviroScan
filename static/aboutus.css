@@ -1,0 +1,120 @@
+* {
+  font-family: Poppins;
+  margin: 0px;
+  padding: 0px;
+}
+
+.aboutus-in1 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+    url("/static/aboutus-banner.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 280px 0px;
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  row-gap: 20px;
+}
+.aboutus-in1 h1 {
+  font-size: 56px;
+  color: white;
+  text-align: center;
+}
+.aboutus-in1 h1 span {
+  color: greenyellow;
+}
+.aboutus-in1 p {
+  font-size: 22px;
+  color: white;
+  width: 80%;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.aboutus-in1 button {
+  padding: 10px 20px;
+  border: 1px solid greenyellow;
+  font-size: 20px;
+  justify-self: center;
+  align-self: center;
+  color: greenyellow;
+  font-weight: bold;
+  background: transparent;
+  transition: all 0.15s;
+}
+.aboutus-in1 button:hover {
+  background-color: greenyellow;
+  color: white;
+  letter-spacing: 2px;
+}
+.aboutus-in2,
+.aboutus-in4 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 90px 0px;
+  flex-wrap: wrap;
+}
+.aboutus-in4 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 90px 0px;
+  flex-wrap: wrap-reverse;
+}
+about-mission-img {
+  margin: 30px;
+}
+.about-mission,
+.about-we-do {
+  display: grid;
+  grid-template-rows: 1fr;
+  row-gap: 10px;
+  width: 600px;
+  padding: 20px 30px;
+}
+.about-mission h1,
+.about-we-do h1 {
+  font-size: 52px;
+}
+.about-mission h3,
+.about-we-do h3 {
+  color: gray;
+}
+.aboutus-in3 {
+  padding: 60px 0px;
+}
+.about-flex-card div {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 400px;
+  height: 600px;
+  position: relative;
+}
+.about-flex-card div h3 {
+  position: absolute;
+  bottom: 140px;
+  color: white;
+}
+.about-flex-card div p {
+  position: absolute;
+  bottom: 30px;
+  color: white;
+}
+.aboutus-card div {
+  max-width: 350px;
+}
+.aboutus-card {
+  margin: 30px;
+}
+.about-flex-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}

@@ -1,0 +1,27 @@
+div.jumbotron.hero-contact-technology {
+  color: #fff;
+  text-align: center;
+  background: url("/static/contact\ us\ banner.jpg");
+  background-position: center;
+  background-size: cover;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact-hero {
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+
+  font-weight: 500;
+  font-size: 52px;
+}
+.contact-herosub {
+  margin: 25px auto;
+  padding: 10px 15px;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 16px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
+  font-weight: 500;
+}

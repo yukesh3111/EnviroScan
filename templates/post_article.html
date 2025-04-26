@@ -1,0 +1,252 @@
+{% extends "baseadmin.html"%} {% block title %}Admin Post Article{% endblock %}
+{% block content %} {% with messages = get_flashed_messages() %} {%if messages%}
+{%for msg in messages%}
+<div
+  class="alert alert-danger alert-dismissible fade show"
+  role="alert"
+  style="margin: 0px; border-radius: 0px"
+>
+  {{msg}}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{%endfor%} {%endif%} {% endwith %}
+<section
+  class="py-4 py-xl-5"
+  style="
+    background: url('/static/adminpostarticle.jpg');
+    background-position: center;
+    background-size: cover;
+    background-clip: inherit;
+    padding-bottom: 30px;
+  "
+>
+  <div class="container h-100">
+    <div class="row h-100">
+      <div
+        class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center"
+      >
+        <div style="color: white">
+          <h2 class="text-uppercase fw-bold mb-3">Post Articles</h2>
+          <p class="mb-4">
+            Publish and share your latest articles with the world. Our intuitive
+            interface streamlines the process, allowing you to focus on crafting
+            compelling content while we handle the rest.
+          </p>
+          <a href="#publish-article"
+            ><button
+              class="btn btn-primary fs-5 me-2"
+              type="button"
+              style="
+                background: rgb(25, 135, 84);
+                padding: 6px 33px;
+                border-style: none;
+              "
+            >
+              Get Started
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section style="margin-top: 50px">
+  <h1 class="text-center text-capitalize">
+    <strong
+      ><span style="color: var(--tw-prose-bold)"
+        >Publish Your Work</span
+      ></strong
+    >
+  </h1>
+  <div class="container" id="publish-article">
+    <form method="post" enctype="multipart/form-data">
+      <div class="form-group mb-3">
+        <div class="row">
+          <div class="col">
+            <p>
+              <strong>Article Title</strong><span class="text-danger">*</span>
+            </p>
+            <input
+              class="form-control"
+              type="text"
+              required=""
+              name="article_title"
+              placeholder="Article Title"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <div class="row">
+          <div class="col d-flex flex-column flex-wrap">
+            <p>
+              <strong>Abstraction</strong>&nbsp;<span class="text-danger"
+                >*</span
+              >
+            </p>
+            <textarea
+              class="form-control"
+              type="text"
+              required=""
+              name="article_abstraction"
+              placeholder="Abstraction"
+              style="padding: 6px 12px"
+              rows="7"
+            ></textarea>
+          </div>
+          <div
+            class="col-sm-7"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            "
+          >
+            <div>
+              <p>
+                &nbsp;<strong>Subtitle</strong>&nbsp;<span class="text-danger"
+                  >*</span
+                >
+              </p>
+              <input
+                class="form-control"
+                type="text"
+                required=""
+                name="article_subtitle"
+                placeholder="Subtitle"
+                style="padding: 6px 12px; margin-bottom: 10px"
+              />
+            </div>
+            <div>
+              <p>
+                &nbsp;<strong>Domain of Article&nbsp;</strong
+                ><span class="text-danger">*</span>
+              </p>
+              <input
+                class="form-control"
+                type="text"
+                required=""
+                name="article_domain"
+                placeholder="Domain of Article"
+                style="padding: 6px 12px"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <p>
+          <strong>Main Content Area</strong><span class="text-danger">*</span>
+        </p>
+        <textarea
+          class="form-control"
+          type="text"
+          name="main_content"
+          placeholder="Content"
+          rows="10"
+        ></textarea>
+      </div>
+      <div class="form-group mb-3">
+        <p>
+          <strong>Conculsion&nbsp;</strong><span class="text-danger">*</span>
+        </p>
+        <textarea
+          class="form-control"
+          type="text"
+          name="conclusion"
+          placeholder="Conculsion"
+          rows="10"
+        ></textarea>
+      </div>
+      <div class="form-group mb-3">
+        <p><strong>Your Picture </strong><span class="text-danger">*</span></p>
+        <div class="file">
+          <!-- Upload image input-->
+          <div
+            class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm"
+          >
+            <input
+              id="upload"
+              type="file"
+              onchange="readURL(this);"
+              class="form-control border-0"
+              name="image"
+              required=""
+            />
+            <label
+              id="upload-label"
+              for="upload"
+              class="font-weight-light text-muted"
+              >Choose file</label
+            >
+            <div class="input-group-append">
+              <label for="upload" class="btn btn-light m-0 rounded-pill px-4">
+                <i class="fa fa-cloud-upload mr-2 text-muted"></i
+                ><small class="text-uppercase font-weight-bold text-muted"
+                  >Choose file</small
+                ></label
+              >
+            </div>
+          </div>
+
+          <!-- Uploaded image area-->
+          <p class="font-italic text-dark text-center">
+            The image uploaded will be rendered inside the box below.
+          </p>
+          <div class="image-area mt-4 text-dark">
+            <img
+              id="imageResult"
+              src="#"
+              alt=""
+              class="img-fluid rounded shadow-sm mx-auto d-block"
+              width="200"
+            />
+          </div>
+          <div class="col d-none">
+            <p><strong>URL</strong><span class="text-danger">*</span></p>
+            <input
+              id="urllink"
+              name="url"
+              type="url"
+              required=""
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+      </div>
+      <div class="justify-content-center d-flex form-group mb-3">
+        <div id="submit-btn">
+          <div class="row">
+            <button
+              class="btn btn-primary btn-light m-0"
+              type="submit"
+              style="min-width: 320px; max-width: 500px; color: white"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col">
+    <h3 id="fail" class="text-center text-danger d-none">
+      <br />Form not Submitted&nbsp;<a href="contact.html">Try Again</a
+      ><br /><br />
+    </h3>
+    <h3 id="success-1" class="text-center text-success d-none">
+      <br />Form Submitted Successfully&nbsp;<a href="contact.html"
+        >Send Another Response</a
+      ><br /><br />
+    </h3>
+  </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/post-article.js"></script>
+{% endblock %}

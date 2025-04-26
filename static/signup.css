@@ -1,0 +1,106 @@
+* {
+  font-family: Poppins;
+  margin: 0px;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.signup-page h1 {
+  margin-bottom: 20px;
+  color: white;
+}
+.signup-name {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(186px, 1fr));
+  justify-content: center;
+  column-gap: 20px;
+  margin: 10px 0px;
+}
+.signup-name input {
+  width: 100%;
+}
+
+.signup-name-2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-items: start;
+  column-gap: 20px;
+  margin: 10px 0px;
+}
+.signup-name-2 div input {
+  padding: 10px 20px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+}
+.signup-name-2 div h5 {
+  color: white;
+  font-size: 16px;
+}
+.signup-name-2 div p {
+  padding: 10px 20px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  background-color: white;
+}
+.signup-name div h5 {
+  color: white;
+  font-size: 16px;
+}
+.signup-name div input {
+  padding: 10px 20px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+}
+.signup-full-row h5 {
+  color: white;
+  font-size: 16px;
+}
+.sigupdiv1 h1 {
+  margin: 0px 0px 10px 0px;
+}
+.signup-full-row input {
+  padding: 10px 20px;
+  border: 1px solid gainsboro;
+  margin: 10px 0px;
+  border-radius: 5px;
+  width: 100%;
+}
+.signup-page form {
+  background-color: rgb(0 0 0 / 20%);
+  backdrop-filter: blur(5px);
+  column-gap: 30px;
+  border-radius: 16px;
+  padding-bottom: 30px;
+}
+
+.signup-inner1 {
+  padding: 24px;
+  background-color: rgb(0 0 0 / 50%);
+}
+.signup-page {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 50px 0px;
+  background-image: url("background3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.signup-page form button {
+  padding: 10px 30px;
+  border: 1px solid greenyellow;
+  background: none;
+  font-size: 20px;
+  color: white;
+  transition: all 0.15s;
+}
+.signup-page form button:hover {
+  background-color: greenyellow;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 700;
+}

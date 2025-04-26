@@ -1,0 +1,470 @@
+{% extends "base2.html"%} {% block title %}home{% endblock %} {% with messages =
+get_flashed_messages() %} {%if messages%} {%for msg in messages%}
+<div
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+  style="margin: 0px"
+>
+  {{msg}}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{%endfor%} {%endif%} {% endwith %} {% block content %}
+<div class="carousel slide" data-bs-ride="carousel" id="carousel-1">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div
+        class="bg-light border rounded border-light hero-home-nature carousel-hero jumbotron py-5 px-4"
+      >
+        {%if article1_title%}
+        <h1 class="hero-title">{{article1_title}}</h1>
+        {%else%}
+        <h1 class="hero-title">
+          Tree Species Identification Using Aerial Remote Sensing Data
+        </h1>
+        {%endif%} {%if article1_abstraction%}
+        <p class="hero-subtitle" id="paragraph1">{{article1_abstraction}}</p>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            var paragraph = document.getElementById("paragraph1");
+            var text = paragraph.innerText;
+
+            if (text.length > 130) {
+              paragraph.innerText = text.substring(0, 120) + "...";
+            }
+          });
+        </script>
+        {%else%}
+        <p class="hero-subtitle">
+          Accurate classification of forest tree species using high-resolution
+          multispectral imagery and LiDAR data.
+        </p>
+        {%endif%}
+        <p>
+          <a
+            class="btn btn-primary btn-lg hero-button"
+            role="button"
+            href="/article{{max1}}/{{role}}"
+            style="
+              padding: 8px 25px;
+              background: #0d986a;
+              border-radius: 5px;
+              border: none;
+            "
+            >Learn more</a
+          >
+        </p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div
+        class="bg-light border rounded border-light hero-home-photography carousel-hero jumbotron py-5 px-4"
+      >
+        {%if article1_title%}
+        <h1 class="hero-title">{{article2_title}}</h1>
+        {%else%}
+        <h1 class="hero-title">
+          Tree Species Identification Using Aerial Remote Sensing Data
+        </h1>
+        {%endif%} {%if article1_abstraction%}
+        <p class="hero-subtitle" id="paragraph2">{{article2_abstraction}}</p>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            var paragraph = document.getElementById("paragraph2");
+            var text = paragraph.innerText;
+
+            if (text.length > 120) {
+              paragraph.innerText = text.substring(0, 120) + "...";
+            }
+          });
+        </script>
+        {%else%}
+        <p class="hero-subtitle">
+          Accurate classification of forest tree species using high-resolution
+          multispectral imagery and LiDAR data.
+        </p>
+        {%endif%}
+        <p>
+          <a
+            class="btn btn-primary btn-lg hero-button"
+            role="button"
+            href="/article{{max2}}/{{role}}"
+            style="
+              padding: 8px 25px;
+              background: #0d986a;
+              border-radius: 5px;
+              border: none;
+            "
+            >Learn more</a
+          >
+        </p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div
+        class="bg-light border rounded border-light hero-home-technology carousel-hero jumbotron py-5 px-4"
+      >
+        {%if article1_title%}
+        <h1 class="hero-title">{{article3_title}}</h1>
+        {%else%}
+        <h1 class="hero-title">
+          Tree Species Identification Using Aerial Remote Sensing Data
+        </h1>
+        {%endif%} {%if article1_abstraction%}
+        <p class="hero-subtitle" id="paragraph3">{{article3_abstraction}}</p>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            var paragraph = document.getElementById("paragraph3");
+            var text = paragraph.innerText;
+
+            if (text.length > 120) {
+              paragraph.innerText = text.substring(0, 120) + "...";
+            }
+          });
+        </script>
+        {%else%}
+        <p class="hero-subtitle">
+          Accurate classification of forest tree species using high-resolution
+          multispectral imagery and LiDAR data.
+        </p>
+        {%endif%}
+        <p>
+          <a
+            class="btn btn-primary btn-lg hero-button"
+            role="button"
+            href="/article{{max3}}/{{role}}"
+            style="
+              padding: 8px 25px;
+              background: #0d986a;
+              border-radius: 5px;
+              border: none;
+            "
+            >Learn more</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <a
+      class="carousel-control-prev"
+      href="#carousel-1"
+      role="button"
+      data-bs-slide="prev"
+      ><span class="carousel-control-prev-icon"></span
+      ><span class="visually-hidden">Previous</span></a
+    ><a
+      class="carousel-control-next"
+      href="#carousel-1"
+      role="button"
+      data-bs-slide="next"
+      ><span class="carousel-control-next-icon"></span
+      ><span class="visually-hidden">Next</span></a
+    >
+  </div>
+  <ol class="carousel-indicators">
+    <li data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></li>
+    <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
+    <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
+  </ol>
+</div>
+
+<div class="container py-4 py-xl-5">
+  <div class="row gy-4 row-cols-2 row-cols-md-4">
+    <div class="col">
+      <div
+        class="text-center d-flex flex-column justify-content-center align-items-center py-3"
+      >
+        <div
+          class="bs-icon-xl bs-icon-circle bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-2 bs-icon"
+          style="background: #0d986a"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            fill="currentColor"
+            class="bi bi-tree"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507"
+            />
+          </svg>
+        </div>
+        <div class="px-3">
+          <h2 class="fw-bold mb-0">3,700+</h2>
+          <p class="mb-0">Tree Species</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div
+        class="text-center d-flex flex-column justify-content-center align-items-center py-3"
+      >
+        <div
+          class="bs-icon-xl bs-icon-circle bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-2 bs-icon"
+          style="background: #0d986a"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            fill="currentColor"
+            class="bi bi-aspect-ratio"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z"
+            />
+            <path
+              d="M2 4.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H3v2.5a.5.5 0 0 1-1 0zm12 7a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H13V8.5a.5.5 0 0 1 1 0z"
+            />
+          </svg>
+        </div>
+        <div class="px-3">
+          <h2 class="fw-bold mb-0">7L+ km</h2>
+          <p class="mb-0">Forest Coverage</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div
+        class="text-center d-flex flex-column justify-content-center align-items-center py-3"
+      >
+        <div
+          class="bs-icon-xl bs-icon-circle bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-2 bs-icon"
+          style="background: #0d986a"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            fill="currentColor"
+            class="bi bi-exclamation-triangle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z"
+            />
+            <path
+              d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"
+            />
+          </svg>
+        </div>
+        <div class="px-3">
+          <h2 class="fw-bold mb-0">2,600+</h2>
+          <p class="mb-0">Extinct Species</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div
+        class="text-center d-flex flex-column justify-content-center align-items-center py-3"
+      >
+        <div
+          class="bs-icon-xl bs-icon-circle bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-2 bs-icon"
+          style="background: #0d986a"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            fill="currentColor"
+            class="bi bi-fire"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16m0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15"
+            />
+          </svg>
+        </div>
+        <div class="px-3">
+          <h2 class="fw-bold mb-0">3L+</h2>
+          <p class="mb-0">Forest Fires</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container py-4 py-xl-5">
+  <div class="row mb-5">
+    <div class="col-md-8 col-xl-6 text-center mx-auto">
+      <h2>Our Solutions for Sustainable Forestry</h2>
+      <p>
+        Harnessing Image Analytics to Safeguard Forests and Foster Responsible
+        Land Management
+      </p>
+    </div>
+  </div>
+  <div class="row gy-4 row-cols-1 row-cols-md-2">
+    <div class="col">
+      <div class="d-flex flex-column flex-lg-row">
+        <div class="w-100">
+          <img
+            class="rounded img-fluid d-block w-100 fit-cover"
+            style="height: 200px"
+            src="/static/home tree enumerate.jpg"
+          />
+        </div>
+        <div class="py-4 py-lg-0 px-lg-4">
+          <h4>Tree Enumeration</h4>
+          <p>
+            Precision through Pixels. Our image analytics platform accurately
+            quantifies tree populations, guiding sustainable land management
+            decisions with data-driven.
+          </p>
+          <a
+            class="btn btn-primary btn-lg me-2"
+            style="
+              padding: 8px 25px;
+              background: #0d986a;
+              border-radius: 5px;
+              border: none;
+            "
+            role="button"
+            href="/tree_counting"
+            >Get Start</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-flex flex-column flex-lg-row">
+        <div class="w-100">
+          <img
+            class="rounded img-fluid d-block w-100 fit-cover"
+            style="height: 200px"
+            src="/static/home green cover.jpg"
+          />
+        </div>
+        <div class="py-4 py-lg-0 px-lg-4">
+          <h4>Green Cover</h4>
+          <p>
+            Striking a Balance. Our analysis evaluates the proportion of green
+            spaces to land usage, optimizing urban planning for sustainable
+            development and preservation.
+          </p>
+          <a
+            class="btn btn-primary btn-lg me-2"
+            style="
+              padding: 8px 25px;
+              background: #0d986a;
+              border-radius: 5px;
+              border: none;
+            "
+            role="button"
+            href="/greenlandspace"
+            >Get Start</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-flex flex-column flex-lg-row">
+        <div class="w-100">
+          <img
+            class="rounded img-fluid d-block w-100 fit-cover"
+            style="height: 200px"
+            src="/static/home comparing with exits.jpg"
+          />
+        </div>
+        <div class="py-4 py-lg-0 px-lg-4">
+          <h4>Comparing with Exist</h4>
+          <p>
+            Our platform compares existing data with real-time insights,
+            empowering stakeholders to make informed choices for effective
+            resource management and statergies.
+          </p>
+          <a
+            class="btn btn-primary btn-lg me-2"
+            style="
+              padding: 8px 25px;
+              background: #0d986a;
+              border-radius: 5px;
+              border: none;
+            "
+            role="button"
+            href="comparewithexisting"
+            >Get Start</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-flex flex-column flex-lg-row">
+        <div class="w-100">
+          <img
+            class="rounded img-fluid d-block w-100 fit-cover"
+            style="height: 200px"
+            src="/static/home species idenfication.jpg"
+          />
+        </div>
+        <div class="py-4 py-lg-0 px-lg-4">
+          <h4>Species Identification</h4>
+          <p>
+            Our image analytics system precisely identifies tree species, aiding
+            biodiversity assessments and informing conservation efforts with
+            detailed species-level insights.
+          </p>
+          <a
+            class="btn btn-primary btn-lg me-2"
+            style="
+              padding: 8px 25px;
+              background: #0d986a;
+              border-radius: 5px;
+              border: none;
+            "
+            role="button"
+            href="/tree_species"
+            >Get Start</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container py-4 py-xl-5">
+  <div class="row gy-4 gy-md-0">
+    <div class="col-md-6">
+      <div class="p-xl-5 m-xl-5">
+        <img
+          class="rounded img-fluid w-100 fit-cover"
+          style="min-height: 300px"
+          src="/static/home page hero banner.jpg"
+        />
+      </div>
+    </div>
+    <div class="col-md-6 d-md-flex align-items-md-center">
+      <div style="max-width: 550px">
+        <h2 class="text-uppercase fw-bold">
+          Explore Our Extensive Article Collection
+        </h2>
+        <p class="my-3">
+          Access the full range of our meticulously curated articles. Whether
+          you're seeking the latest updates or in-depth features, find
+          comprehensive content that caters to your interests and expands your
+          knowledge.
+        </p>
+        <a
+          class="btn btn-primary btn-lg me-2"
+          role="button"
+          style="
+            padding: 8px 25px;
+            background: #0d986a;
+            border-radius: 5px;
+            border: none;
+          "
+          href="/viewallarticle"
+          >Learn more</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

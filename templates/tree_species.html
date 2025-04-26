@@ -1,0 +1,364 @@
+{% extends "base2.html"%} {% block title %}Tree_count{% endblock %} {% block
+content %} {% with messages = get_flashed_messages() %} {%if messages%} {%for
+msg in messages%}
+<div
+  class="alert alert-danger alert-dismissible fade show"
+  role="alert"
+  style="margin: 0px; border-radius: 0px"
+>
+  {{msg}}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{%endfor%} {%endif%} {% endwith %}
+<section
+  class="py-4 py-xl-5"
+  style="
+    background: url('/static/tree_species_banner.jpg') center / cover no-repeat;
+  "
+>
+  <div class="container h-100">
+    <div class="row h-100">
+      <div
+        class="col-md-10 col-xl-8 offset-xl-4 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center"
+      >
+        <div>
+          <h2
+            class="text-uppercase fw-bold mb-3"
+            style="color: var(--bs-white)"
+          >
+            Discover and Identify Trees with Ease
+          </h2>
+          <p class="mb-4" style="color: var(--bs-white)">
+            <br />
+            At EnviroScan, Empowers you to identify trees effortlessly. Upload
+            images, and unveil detailed species descriptions, including common
+            names, habitats, and ecological roles. Let TreeID guide your
+            exploration of the botanical wonders around you.<br />
+          </p>
+          <a href="#uplode">
+            <button
+              class="btn btn-primary fs-5 me-2 py-2 px-4"
+              type="button"
+              style="background-color: #0d986a; border: none"
+            >
+              Get Started
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container-fluid py-5" id="uplode">
+  <div class="bg-light border rounded border-light jumbotron py-5 px-4">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Upload Image</h4>
+        <form method="post" enctype="multipart/form-data">
+          <p>Select the image to upload</p>
+          <input
+            class="form-control"
+            type="file"
+            id="inputFileToLoad"
+            name="image"
+          />
+          <p>Select the destination path for the upload</p>
+          <div class="mt-4">
+            <button
+              class="btn btn-success btn-lg"
+              type="submit"
+              style="background-color: #0d986a"
+              onclick="reloadContent()"
+            >
+              Upload
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{%if response==1%}
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-md-8 col-lg-10 col-xl-20 offset-lg-7 text-center mx-auto">
+      <h2>
+        <span style="color: rgb(13, 13, 13)"
+          >Successful Image Prediction Achieved &nbsp;<span
+            ><img
+              src="/static/accept.png"
+              alt="accept"
+              height="32"
+              width="32" /></span
+        ></span>
+      </h2>
+      <p>
+        <span style="color: rgb(13, 13, 13)"
+          >The image has been successfully predicted with a high degree of
+          accuracy, yielding a clear and definitive outcome. This accomplishment
+          underscores the effectiveness of the predictive model utilized,
+          providing confidence in its ability to accurately identify the
+          depicted subject.&nbsp;
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+{%elif response==2%}
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-md-8 col-lg-10 col-xl-20 offset-lg-7 text-center mx-auto">
+      <h2>
+        <span style="color: rgb(13, 13, 13)"
+          >Accuracy and Clarity Challenges in Species Prediction&nbsp;<span
+            ><img
+              src="/static/attention.png"
+              alt="warnning"
+              height="32"
+              width="32" /></span
+        ></span>
+      </h2>
+      <p>
+        <span style="color: rgb(13, 13, 13)"
+          >The analysis reveals a notable deficiency in accuracy, with the image
+          lacking clarity and precision. Predictions based on this data exhibit
+          a low level of reliability, particularly regarding the identification
+          of species within the image.</span
+        >
+      </p>
+    </div>
+  </div>
+</div>
+{%else%}
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-md-8 col-lg-10 col-xl-20 offset-lg-7 text-center mx-auto">
+      <h2>
+        <span style="color: rgb(13, 13, 13)"
+          >Discover Tree Species with Our Prediction Tool</span
+        >
+      </h2>
+      <p>
+        <span style="color: rgb(13, 13, 13)"
+          >Explore our tree species prediction tool for instant identification
+          of trees based on their characteristics. Our cutting-edge algorithms
+          swiftly analyze input data to deliver accurate results. Whether you're
+          a novice or an expert, discover the species around you with
+          ease.</span
+        >
+      </p>
+    </div>
+  </div>
+</div>
+{%endif%}
+
+<div class="container col-xxl-8">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div
+      class="col-10 col-sm-8 col-lg-6"
+      style="text-align: center; align-self: center; justify-self: center"
+    >
+      <p>
+        {%if filename%}
+        <img
+          src="{{ url_for('static', filename='species/'+filename) }}"
+          alt="Uploaded Image"
+          width="450"
+          height="450"
+        />
+        {%else%}
+        <img
+          src="https://placehold.co/450x450"
+          alt="Uploaded Image"
+          width="450"
+          height="450"
+        />
+        {%endif%}
+      </p>
+    </div>
+    {%if response==2%}
+    <div
+      class="col-lg-6"
+      style="margin-bottom: -1px; padding-bottom: 0px; align-self: center"
+    >
+      <h1 class="text-uppercase fw-bold" style="font-size: 30px">
+        <span>Potential Tree Species Detected</span>
+      </h1>
+
+      <p>
+        While we strive for accuracy in identifying tree species, sometimes the
+        complexity of the image or other factors may result in lower confidence
+        scores. Below are the potential tree species detected in your image
+      </p>
+    </div>
+    {%else%}
+    <div
+      class="col-lg-6"
+      style="margin-bottom: -1px; padding-bottom: 0px; align-self: center"
+    >
+      <h1 class="text-uppercase fw-bold" style="font-size: 30px">
+        {%if species%}
+        <span style="color: rgb(13, 13, 13)">{{species}}</span>
+        {%else%}
+        <span style="color: rgb(13, 13, 13)">species Name</span>
+        {%endif%}
+      </h1>
+
+      <p>
+        {%if species%}
+        <span style="color: rgb(13, 13, 13)">{{despription0}}</span>
+        {%else%}
+        <span style="color: rgb(13, 13, 13)"
+          >Before predicting the species, simply upload an image of the tree you
+          want to identify. Our intuitive interface makes it easy to submit your
+          image, allowing our advanced algorithms to analyze its features
+          accurately. Prepare to unveil the mystery of the trees around you with
+          just a few clicks.</span
+        >
+        {%endif%}
+      </p>
+    </div>
+    {%endif%}
+  </div>
+</div>
+{%if response==2 and response!=1%}
+<div class="container py-4 py-xl-5">
+  <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+    {%if confidence[0]%}
+    <div class="col">
+      <div
+        class="text-center d-flex flex-column align-items-center align-items-xl-center"
+      >
+        <div
+          class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon"
+          style="background-color: #0d986a"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+            class="bi bi-bell"
+          >
+            <path
+              d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"
+            ></path>
+          </svg>
+        </div>
+        <div class="px-3">
+          <h4>{{species[0]}}</h4>
+          <p>Accuracy : {{confidence[0]}}%</p>
+        </div>
+      </div>
+    </div>
+    {%endif%} {%if confidence[1]%}
+    <div class="col">
+      <div
+        class="text-center d-flex flex-column align-items-center align-items-xl-center"
+      >
+        <div
+          class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon"
+          style="background-color: #0d986a"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+            class="bi bi-tree"
+          >
+            <path
+              d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507z"
+            ></path>
+          </svg>
+        </div>
+        <div class="px-3">
+          <h4>{{species[1]}}</h4>
+          <p>Accuracy : {{confidence[1]}}%</p>
+        </div>
+      </div>
+    </div>
+    {%endif%} {%if confidence[2]%}
+    <div class="col">
+      <div
+        class="text-center d-flex flex-column align-items-center align-items-xl-center"
+      >
+        <div
+          class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon"
+          style="background-color: #0d986a"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+            class="bi bi-graph-up"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"
+            ></path>
+          </svg>
+        </div>
+        <div class="px-3">
+          <h4>{{species[2]}}</h4>
+          <p>Accuracy : {{confidence[2]}}%</p>
+        </div>
+      </div>
+    </div>
+    {%endif%}
+  </div>
+</div>
+{%endif%} {%if phy%}
+<div class="container py-4 py-xl-5">
+  <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+    <div class="col">
+      <div>
+        <div class="card-body p-4">
+          <h4 class="card-title">Physical Charateristics</h4>
+          <p class="card-text">{{phy}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <div class="card-body p-4">
+          <h4 class="card-title">Ecological Role</h4>
+          <p class="card-text">{{eco}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <div class="card-body p-4">
+          <h4 class="card-title">Intresting Fact</h4>
+          <p class="card-text">{{fact}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{%endif%}
+<div
+  class="loading-screen"
+  id="loadingScreen"
+  style="background-color: rgba(0, 0, 0, 0.7)"
+>
+  <div class="loader">
+    <div class="inner one"></div>
+    <div class="inner two"></div>
+    <div class="inner three"></div>
+    <br />
+    <br />
+    <div style="margin-left: -15px"><p>Loading</p></div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+Flask
+Flask-SQLAlchemy
+Flask-Mail
+ultralytics
+roboflow
+Werkzeug
+opencv-python
+numpy
